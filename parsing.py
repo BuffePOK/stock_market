@@ -1,13 +1,13 @@
 from stables import stable_binance
 from requests import get
 
-# def depth(coin, url):
-#     param = {
-#                 "symbol":coin,
-#                 "limit":1000
-#             }
-#     order_book = get(url, params=param).json()
-#     return order_book
+def depth(coin, url):
+    param = {
+                "symbol":coin,
+                "limit":1000
+            }
+    order_book = get(url, params=param).json()
+    return order_book
 
 # def trades(coin, url):
 #     param = {
@@ -42,7 +42,7 @@ def klines(coin, url):
     param = {
                 "symbol":coin,
                 "interval":"15m",
-                "limit":960
+                "limit":1344
             }
     answer = get(url, params=param).json()
     parsing_klines = []
@@ -70,11 +70,11 @@ def klines(coin, url):
 #     return top_positions
 
 def parsing(coin):
-    # depth_result = depth(url=stable_binance['base']+stable_binance['order_book'], coin=coin)
+    depth_result = depth(url=stable_binance['base']+stable_binance['order_book'], coin=coin)
     # trades_result = trades(url=stable_binance['base']+stable_binance['trades_list'], coin=coin)
     klines_result = klines(url=stable_binance['base']+stable_binance['klines'], coin=coin)
     # top_result = top_long_short_positions(url=stable_binance['base']+stable_binance['top_long_short_positions'], coin=coin)
-    return klines_result
+    return klines_result, depth_result
 
 
 # if __name__ == "__main__":

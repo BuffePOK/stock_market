@@ -3,7 +3,7 @@ from analytics import get_chance
 from time import sleep, time
 from parsing import parsing
 from stables import stable_binance, crypto_list, trading_ratio
-from stables import keys
+from keys import keys
 from requests import get
 from binance.client import Client
 from os.path import dirname, abspath
@@ -32,102 +32,87 @@ def open_position(coin, client):
 
     # if len(open_json["open"]) > 13: return -1
 
-    # chance = get_chance(coin)
+    chance = get_chance(coin)
 
-    # if chance >= 80:
-    #     url = stable_binance["base"] + stable_binance["price"]
-    #     price = float(get(url, params={"symbol":coin}).json()["price"])
-    #     if price >= 10000: return -1
-    #     if price > 2000: quantity = round((10/price), 3) # Измените число, чтобы изменить ставку
-    #     elif price >= 500 and price <= 2000: quantity = round((10/price), 2) # Измените число, чтобы изменить ставку
-    #     elif price <= 500 and price >= 50: quantity = round((10/price), 1) # Измените число, чтобы изменить ставку
-    #     else: quantity = round((10/price), 0) # Измените число, чтобы изменить ставку
+    if chance >= 75:
+        url = stable_binance["base"] + stable_binance["price"]
+        price = float(get(url, params={"symbol":coin}).json()["price"])
+        if price > 2000: quantity = round((25/price), 3) # Измените число, чтобы изменить ставку
+        elif price >= 500 and price <= 2000: quantity = round((25/price), 2) # Измените число, чтобы изменить ставку
+        elif price <= 500 and price >= 50: quantity = round((25/price), 1) # Измените число, чтобы изменить ставку
+        else: quantity = round((25/price), 0) # Измените число, чтобы изменить ставку
 
-    #     try:
-    #         client.futures_create_order(
-    #         symbol=coin,
-    #         side="SELL",
-    #         quantity=quantity,
-    #         type="MARKET",
-    #         timestamp=(time()*1000)
-    #     )
-    #     except: return -1
+        client.futures_create_order(
+            symbol=coin,
+            side="SELL",
+            quantity=quantity,
+            type="MARKET",
+            timestamp=(time()*1000)
+        )
 
+        margin_call = 1.0886*price
+        to_json = {
+            "coin":coin,
+            "side":"SELL",
+            "open_price":price,
+            "open_chance":chance,
+            "margin_call":0,
+            "quantity":quantity,
+            "open_time":time()*1000,
+            "margin_call_price":margin_call,
+            "profit": 0
+        }
+        print(to_json)
 
-    #     margin_call = 1.0886*price
-    #     to_json = {
-    #         "coin":coin,
-    #         "side":"SELL",
-    #         "open_price":price,
-    #         "open_chance":chance,
-    #         "margin_call":0,
-    #         "quantity":quantity,
-    #         "open_time":time()*1000,
-    #         "margin_call_price":margin_call,
-    #         "profit": 0
-    #     }
-    #     print(to_json)
-
-    #     open_json["open"].append(to_json)
+        open_json["open"].append(to_json)
         
-    #     file_json = open(file_path, 'w')
-    #     dump(open_json, file_json, sort_keys=True, indent=2)
-    #     file_json.close()
+        file_json = open(file_path, 'w')
+        dump(open_json, file_json, sort_keys=True, indent=2)
+        file_json.close()
 
-    #     return 200
-
-
+        return 200
 
 
 
 
+    if chance <= -75:
+        url = stable_binance["base"] + stable_binance["price"]
+        price = float(get(url, params={"symbol":coin}).json()["price"])
+        if price > 2000: quantity = round((25/price), 3) # Измените число, чтобы изменить ставку
+        elif price >= 500 and price <= 2000: quantity = round((25/price), 2) # Измените число, чтобы изменить ставку
+        elif price <= 500 and price >= 50: quantity = round((25/price), 1) # Измените число, чтобы изменить ставку
+        else: quantity = round((25/price), 0) # Измените число, чтобы изменить ставку
+
+        client.futures_create_order(
+            symbol=coin,
+            side="BUY",
+            quantity=quantity,
+            type="MARKET",
+            timestamp=(time()*1000)
+        )
+
+        margin_call = price / 1.10054
+        to_json = {
+            "coin":coin,
+            "side":"BUY",
+            "open_price":price,
+            "open_chance":chance,
+            "margin_call":0,
+            "quantity":quantity,
+            "open_time":time()*1000,
+            "margin_call_price":margin_call,
+            "profit": 0
+        }
+        print(to_json)
+
+        open_json["open"].append(to_json)
+
+        file_json = open(file_path, "w")
+        dump(open_json, file_json, sort_keys=True, indent=2)
+        file_json.close()
 
 
-
-
-    # if chance <= -80:
-    #     url = stable_binance["base"] + stable_binance["price"]
-    #     price = float(get(url, params={"symbol":coin}).json()["price"])
-    #     if price >= 10000: return -1
-    #     if price > 2000: quantity = round((10/price), 3) # Измените число, чтобы изменить ставку
-    #     elif price >= 500 and price <= 2000: quantity = round((10/price), 2) # Измените число, чтобы изменить ставку
-    #     elif price <= 500 and price >= 50: quantity = round((10/price), 1) # Измените число, чтобы изменить ставку
-    #     else: quantity = round((10/price), 0) # Измените число, чтобы изменить ставку
-
-
-    #     try:
-    #         client.futures_create_order(
-    #         symbol=coin,
-    #         side="BUY",
-    #         quantity=quantity,
-    #         type="MARKET",
-    #         timestamp=(time()*1000)
-    #     )
-    #     except: return -1
-
-
-    #     margin_call = price / 1.10054
-    #     to_json = {
-    #         "coin":coin,
-    #         "side":"BUY",
-    #         "open_price":price,
-    #         "open_chance":chance,
-    #         "margin_call":0,
-    #         "quantity":quantity,
-    #         "open_time":time()*1000,
-    #         "margin_call_price":margin_call,
-    #         "profit": 0
-    #     }
-    #     print(to_json)
-
-    #     open_json["open"].append(to_json)
-
-    #     file_json = open(file_path, "w")
-    #     dump(open_json, file_json, sort_keys=True, indent=2)
-    #     file_json.close()
-
-
-    #     return 200
+        return 200
 
 
 
@@ -187,7 +172,7 @@ def close_position(from_open_json, client):
 
     profit = get_chance(from_open_json["coin"])
 
-    if from_open_json["side"] == "SELL" and profit <= 25.0:
+    if from_open_json["side"] == "SELL" and profit <= 10.0:
         client.futures_create_order(
             symbol=from_open_json["coin"],
             side="BUY",
@@ -228,7 +213,7 @@ def close_position(from_open_json, client):
         return 200
 
 
-    if from_open_json["side"] == "BUY" and profit >= -25.0:
+    if from_open_json["side"] == "BUY" and profit >= -10.0:
         client.futures_create_order(
             symbol=from_open_json["coin"],
             side="SELL",
