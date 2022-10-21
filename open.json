@@ -1,0 +1,158 @@
+{
+  "open": [
+    {
+      "coin": "CELRUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.022229212,
+      "open_chance": 59.552363544050735,
+      "open_price": 0.02042,
+      "open_time": 1659134923638.2297,
+      "profit": 0,
+      "quantity": 1224.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "ANTUSDT",
+      "margin_call": 0,
+      "margin_call_price": 2.2022378000000002,
+      "open_chance": 63.711058910291655,
+      "open_price": 2.023,
+      "open_time": 1659134999488.3884,
+      "profit": 0,
+      "quantity": 12.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "DOTUSDT",
+      "margin_call": 0,
+      "margin_call_price": 9.0887214,
+      "open_chance": 50.56855280102959,
+      "open_price": 8.349,
+      "open_time": 1659162639242.912,
+      "profit": 0,
+      "quantity": 3.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "DOGEUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.080436654,
+      "open_chance": 65.03754617639616,
+      "open_price": 0.07389,
+      "open_time": 1659171740849.4304,
+      "profit": 0,
+      "quantity": 338.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "BELUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.9289984916495537,
+      "open_chance": -50.43140305396531,
+      "open_price": 1.0224,
+      "open_time": 1659175188136.2417,
+      "profit": 0,
+      "quantity": 24.0,
+      "side": "BUY"
+    },
+    {
+      "coin": "STMXUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.009057151999999999,
+      "open_chance": 55.76817354758808,
+      "open_price": 0.00832,
+      "open_time": 1659177455927.5828,
+      "profit": 0,
+      "quantity": 3005.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "MASKUSDT",
+      "margin_call": 0,
+      "margin_call_price": 1.8157847999999999,
+      "open_chance": 53.64424252077071,
+      "open_price": 1.668,
+      "open_time": 1659183426489.5771,
+      "profit": 0,
+      "quantity": 15.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "CTKUSDT",
+      "margin_call": 0,
+      "margin_call_price": 1.20431818,
+      "open_chance": 54.60569545757942,
+      "open_price": 1.1063,
+      "open_time": 1659183823231.4077,
+      "profit": 0,
+      "quantity": 23.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "SKLUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.066154222,
+      "open_chance": 50.789213876596335,
+      "open_price": 0.06077,
+      "open_time": 1659184853366.0288,
+      "profit": 0,
+      "quantity": 411.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "ZILUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.047201696,
+      "open_chance": 52.85407067299246,
+      "open_price": 0.04336,
+      "open_time": 1659187346399.765,
+      "profit": 0,
+      "quantity": 577.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "KNCUSDT",
+      "margin_call": 0,
+      "margin_call_price": 1.8179619999999999,
+      "open_chance": 53.456782307209544,
+      "open_price": 1.67,
+      "open_time": 1659187639858.4175,
+      "profit": 0,
+      "quantity": 15.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "IOTXUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.037785306,
+      "open_chance": 55.37498199089199,
+      "open_price": 0.03471,
+      "open_time": 1659187643995.2893,
+      "profit": 0,
+      "quantity": 720.0,
+      "side": "SELL"
+    },
+    {
+      "coin": "MKRUSDT",
+      "margin_call": 0,
+      "margin_call_price": 1261.7962599999998,
+      "open_chance": 54.14100343520766,
+      "open_price": 1159.1,
+      "open_time": 1659188307459.9956,
+      "profit": 0,
+      "quantity": 0.02,
+      "side": "SELL"
+    },
+    {
+      "coin": "LINAUSDT",
+      "margin_call": 0,
+      "margin_call_price": 0.011081948,
+      "open_chance": 52.36191774697735,
+      "open_price": 0.01018,
+      "open_time": 1659188335501.1545,
+      "profit": 0,
+      "quantity": 2456.0,
+      "side": "SELL"
+    }
+  ]
+}
